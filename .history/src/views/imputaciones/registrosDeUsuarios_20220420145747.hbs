@@ -1,0 +1,51 @@
+<head>
+    <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
+    <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
+</head>
+<body>
+    <div class="container p-4">
+    <div class="row">
+        <button id="btnExportar" class="btn btn-success">
+                <i class="fas fa-file-excel"></i> Exportar datos a Excel
+        </button>
+        {{#each results}}
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action flex-column align-items-start" style="background-color: rgb(202, 202, 202); border-color: black;" >
+                    <div>
+                        <div>
+                            <p class="mb-1">Usuario: {{fullname}}</p>
+                            <p class="mb-1">Fecha: {{fecha}}</p>
+                            <p class="mb-1">Comunidad: {{comunidad}}</p>
+                            <p class="mb-1">Horas: {{horas}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text center">
+                    <p>No hay registros guardados.</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+
+<script>
+    const $btnExportar = document.querySelector("#btnExportar"),
+        $tabla = document.querySelector("#tabla");
+
+    $btnExportar.addEventListener("click", function() {
+        let tableExport = new TableExport($tabla, {
+            exportButtons: false, // No queremos botones
+            filename: "Reporte de prueba", //Nombre del archivo de Excel
+            sheetname: "Reporte de prueba", //Título de la hoja
+        });
+        let datos = tableExport.getExportData();
+        let preferenciasDocumento = datos.tabla.xlsx;
+        tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
+    });
+</script>
+</body>

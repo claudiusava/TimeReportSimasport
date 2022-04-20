@@ -1,0 +1,24 @@
+<div class="container p-4">
+    <div class="row">
+        {{#each results}}
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action flex-column align-items-start" style="background-color: rgb(202, 202, 202); border-color: black;" >
+                    <div>
+                        <div>
+                            <p class="mb-1">Usuario: {{fullname}}</p>
+                            <p class="mb-1">Fecha: {{fecha}}</p>
+                            <p class="mb-1">Comunidad: {{comunidad}}</p>
+                            <p class="mb-1">Horas: {{horas}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text center">
+                    <p>No hay registros guardados.</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

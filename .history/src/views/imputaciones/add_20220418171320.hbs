@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    </head>
+    <body>
+    <div class="container p-5">
+    <div class="row">
+        <div class="col-md-9 mx-auto">
+            <div class="card ">
+                <div class="card-header">
+                    <form action="/imputaciones/add" method="POST">
+                        <div class="row justify-content-center">
+                            <div class="form-group col-5">
+                                <input type="date" class="form-control" name="fecha" placeholder="fecha" autofocus required>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class=" form-group col-5">
+                                <select name="comunidad" class="form-control" id="selector" required>
+                                    <option hidden>Selecciona una comunidad.</option>
+                                    <option value="Comunidad 1">Comunidad 1</option>
+                                    <option value="Comunidad 2">Comunidad 2</option>
+                                    <option value="Comunidad 3">Comunidad 3</option>
+                                    <option value="Comunidad 4">Comunidad 4</option>
+                                    <option value="Comunidad 5">Comunidad 5</option>
+                                </select>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-sm-2">
+                                <input class="form-control float-left" type="number" placeholder="Horas" min="0" max="23" name="horas" required>
+                            </div>
+                            <div class="col-1 text-center">
+                                <span>:</span>
+                            </div>
+                            <div class="col-sm-2">
+                                <input class="form-control float-right" type="number" placeholder="Minutos" min="0" max="59" name="minutos" required>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-center">
+                            <button class="btn btn-success">
+                                Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+    $('#selector').select2();
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</body>
+</html>
