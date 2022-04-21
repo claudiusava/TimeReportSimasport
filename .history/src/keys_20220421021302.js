@@ -9,10 +9,10 @@
 
 module.exports = {
     database: {
-        host: 'eu-cdbr-west-02.cleardb.net',
+        host: 'localhost',
         user: 'b7662fb562fd96',
-        password: '35397d26',
-        database: 'heroku_085bf489c8aafce'
+        password: '',
+        database: 'database_imputaciones'
     }
 }
 
